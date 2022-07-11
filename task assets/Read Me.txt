@@ -1,0 +1,17 @@
+This task is about creating simple single page app. The focus is on front-end part; you are given expected design layout (screenshots) and API that needs to be used.
+API is hosted here: https://frontend-api-test-nultien.azurewebsites.net/swagger
+and is using a Swagger, so hopefully it should be self-explanatory.
+
+(Using BlogPosts & Category API) App should support CRUD operations for blog site; you can add new blog posts or alter existing ones (pop up will appear) or you can filter/delete them.
+Images (with descriptions like 80x80 or 100x100) are not provided, but are expected to be there in layout so please make a placeholder for them.
+Note: working with any kind of files and authentication/authorization is out of the scope for this task.
+Look & feel should be similar (as much as possible) to provided screenshots.
+Use HTML5 markup when you can.
+You can use any of the following libraries/frameworks: Angular, React (preferred), VueJs.
+You can use Bootstrap or any other styling framework in line with your custom SASS or LESS or you can perhaps write everything in plain CSS.
+Make application to have responsive design.
+
+Linting and/or (unit) testing your code is more than welcome.
+It's expected that you will apply some of best coding practices you know, but this is a small exercise and you probably shouldn't spend more thand few to several hours on it.
+Once you're done with coding, send us your code via email or URL to your GitHub/Bitbucket repository. Please include your source control history.
+Should you have any questions or feedback for the assignment, feel free to contact us.
