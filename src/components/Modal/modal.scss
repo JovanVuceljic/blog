@@ -1,0 +1,116 @@
+@import "../../styles/varibales.scss";
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+    min-height: 300px;
+    width: 80%;
+    background-color: $colorWhite;
+    border: 1px solid $colorBlack;
+
+    .modal-header {
+        background-color: $colorItemBackground;
+        border-bottom: 1px solid $colorBlack;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .modal-title {
+            font-weight: 600;
+            padding-left: 10px;
+        }
+
+        .modal-btn-wrap {
+            display: flex;
+
+            .modal-btn {
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                border: 1px solid $colorBlack;
+                margin: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                user-select: none;
+
+                &:hover {
+                    opacity: 0.6;
+                }
+
+                &.modal-fullscreen {
+                    font-size: 20px;
+                    padding-bottom: 3px;
+                }
+            }
+        }
+
+    }
+
+    .modal-content-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        flex: 1;
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            margin: auto;
+
+
+            .input-item {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+
+                label {
+                    margin-right: 10px;
+                }
+
+                .input-wrap {
+                    flex: 1;
+
+                    input,
+                    textarea {
+                        outline: none;
+                        width: 100%;
+                        padding: 0 5px;
+                    }
+
+                    textarea {
+                        min-height: 100px;
+                    }
+                }
+            }
+
+            .modal-btn-wrap {
+                display: flex;
+                justify-content: space-evenly;
+                margin: 10px auto 0 auto;
+                width: 90%;
+            }
+        }
+    }
+}

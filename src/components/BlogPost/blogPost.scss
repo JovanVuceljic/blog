@@ -1,0 +1,37 @@
+@import "../../styles/varibales.scss";
+
+.blog-post {
+    border: 1px solid $colorBlack;
+    background-color: $colorWhite;
+    margin-bottom: 15px;
+    flex: 1;
+    padding: 10px 15px;
+
+    &:nth-child(2n+1) {
+        background-color: $colorItemBackground;
+    }
+
+    .post-header {
+        display: flex;
+
+        .headline {
+            padding-left: 10px;
+
+            span {
+                font-size: 14px;
+            }
+        }
+
+    }
+
+    .post-gallery {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+
+        & > div {
+            margin: 5px;
+        }
+    }
+}

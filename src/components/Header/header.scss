@@ -1,0 +1,84 @@
+@import '../../styles/varibales.scss';
+
+.navigation-wrap {
+    width: 100%;
+    background-color: $colorBlack;
+    height: 50px;
+    padding: 0 30px;
+
+    a {
+        white-space: nowrap;
+        color: $font-color-white;
+        padding: 0 10px;
+    }
+
+    nav.main-navigation {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        margin: auto;
+        align-items: center;
+        height: 100%;
+
+        a.logo {
+            text-decoration: none;
+        }
+
+        .right-nav-wrap {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            .search-wrap>input {
+                padding: 3px 5px;
+                outline: none;
+            }
+        }
+    }
+
+    .nav-link-wrap {
+        display: flex;
+        height: 100%;
+
+        a.page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+        &.visible {
+            display: block;
+        }
+        @media screen and (max-width: $tablet) {
+            display: none;
+            width:100%;
+            background-color: lighten($colorBlack, 10%);
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            left: 0;
+            height: auto;
+            padding: 20px 0;
+        }
+    }
+
+    .bars {
+        display: none;
+        width: 50px;
+
+        span {
+            display: block;
+            margin: 4px auto;
+            height: 2px;
+            width: 30px;
+            background-color: $colorWhite;
+        }
+
+        @media screen and (max-width: $tablet) {
+            display: block;
+        }
+    }
+}
