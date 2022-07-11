@@ -51,6 +51,7 @@
         }
         &.visible {
             display: block;
+            z-index: 99;
         }
         @media screen and (max-width: $tablet) {
             display: none;

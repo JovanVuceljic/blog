@@ -11,17 +11,26 @@
         background-color: $colorItemBackground;
     }
 
+    
     .post-header {
         display: flex;
-
+        flex: 1;
+        
         .headline {
             padding-left: 10px;
-
+            flex: 1;
+            
             span {
                 font-size: 14px;
             }
         }
-
+        
+        .btn-wrap {
+            display: inline-block;
+            .btn{
+                margin-left: 5px;
+            }
+        }
     }
 
     .post-gallery {
@@ -30,7 +39,7 @@
         justify-content: center;
         padding: 20px 0;
 
-        & > div {
+        &>div {
             margin: 5px;
         }
     }

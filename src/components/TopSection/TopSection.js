@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 import "./topSection.scss";
@@ -8,16 +9,34 @@ const TopSection = () => {
     const [isOpenModal, setOpenModal] = useState(false);
     const [postTitle, setPostTitle] = useState('');
     const [postText, setPostText] = useState('');
-    
+    const [message, setMessage] = useState('Container for showing application messages')
+
     const handleCloseAppMessage = () => setVisible(false)
     const handlePopUp = () => setOpenModal(true)
     const closeModal = () => setOpenModal(false)
     const handlePostTitle = (e) => setPostTitle(e.currentTarget.value)
     const handlePostText = (e) => setPostText(e.target.value)
 
-    const handleSubmit = e => {
-        e.preventDefault() 
-        console.log(postTitle, postText)
+    const handleSubmit = async e => {
+        e.preventDefault()
+        const apiUrl = "https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts";
+        const messageToSend =
+        {
+            // "id": 0,
+            "title": postTitle,
+            "text": postText,
+            // "categoryId": 0
+        }
+        try {
+            closeModal()
+            setMessage("Posting")
+            await axios.post(apiUrl, messageToSend).then(() => {
+                setMessage("Posted successfully")
+            });
+        }
+        catch (err) {
+            console.log("Error: " + err.message);
+        }
     }
 
     return (
@@ -25,7 +44,7 @@ const TopSection = () => {
             <h1>Welcome to My Blog</h1>
             <div className={`app-messages ${isVisible ? 'visible' : ''}`}>
                 <span className="btn-close" onClick={handleCloseAppMessage}>X</span>
-                <p>Container for showing application messages</p>
+                <p>{message}</p>
             </div>
             <div className="btn-wrap">
                 <button className="btn" onClick={handlePopUp}>Add post</button>

@@ -1,17 +1,42 @@
 import Placeholder from "../Placeholder/Placeholder"
+import axios from 'axios'
 import './blogPost.scss'
 
-const BlogPost = () => {
+const BlogPost = ({ id, createdAt, text, title, updatedAt, categoryId }) => {
+
+    const formatedDate = date => {
+        const d = new Date(date)
+        return `${d.getDate()}.${d.getDate()}.${d.getFullYear()} at ${d.getHours()}:${d.getMinutes()}`
+    }
+
+    const deleteBlogPost = async () => {
+        const apiUrl = "https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts";
+
+        await axios.delete(`${apiUrl}/${id}`)
+            .then((response) => console.log("deleted", response))
+            .catch(err => console.error("Err: ", err))
+    }
+
+
+    const handleDelete = id => {
+        if (window.confirm("Are you sure you want to delete this post?"))
+            deleteBlogPost(id)
+    }
+
     return (
         <article className="blog-post">
             <div className="post-header">
                 <Placeholder dimension={80} />
                 <div className="headline">
-                    <h2>Blog post 1</h2>
-                    <span>Posted date: 11.07.2021</span>
+                    <h2>{title}</h2>
+                    <span>Posted date: {formatedDate(createdAt)} by Some Person</span>
+                </div>
+                <div className="btn-wrap">
+                    <button className="btn">Edit</button>
+                    <button className="btn" onClick={() => handleDelete(id)}>Delete</button>
                 </div>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.ccnnvvvvccc,,,,,,,iiiiiiik,mk</p>
+            <p>{text}</p>
 
             <div className="post-gallery">
                 <Placeholder dimension={100} />
